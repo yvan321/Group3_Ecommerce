@@ -1,6 +1,5 @@
 import Header from '@/components/shared/header';
 import Footer from '@/components/footer';
-import '../globals.css' //stylessssss
 
 
 export default function RootLayout({
