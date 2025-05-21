@@ -5,7 +5,6 @@ import {
   SheetContent,
   SheetTrigger,
   SheetTitle,
-  SheetDescription,
 } from '@/components/ui/sheet';
 import Link from 'next/link';
 import ModeToggle from './mode-toggle';
