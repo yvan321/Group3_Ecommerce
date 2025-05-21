@@ -1,6 +1,6 @@
 import Header from '@/components/shared/header';
 import Footer from '@/components/footer';
-import "@/assets/styles/globals.css"
+import "@/assets/styles/globals.css" // styles
 
 
 export default function RootLayout({
