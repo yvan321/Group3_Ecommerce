@@ -7,10 +7,10 @@ const ProductPrice = ({
   value: number;
   className?: string;
 }) => {
-  // Ensure two decimal places
-  const stringValue = value.toFixed(2);
-  // Get the int/float
-  const [intValue, floatValue] = stringValue.split('.');
+  // Ensures two decimal places
+  const stringValue = value.toFixed(2); 
+  // Split into integer and decimal parts
+  const [intValue, floatValue] = stringValue.split('.'); 
 
   return (
     <p className={cn('text-2xl', className)}>
