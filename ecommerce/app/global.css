@@ -1,8 +1,4 @@
-@import 'tailwindcss'; /* import */
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss'; /*  */
 
 
 @custom-variant dark (&:is(.dark *));
