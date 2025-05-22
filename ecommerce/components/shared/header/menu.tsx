@@ -1,58 +1,27 @@
-import { EllipsisVertical, ShoppingCart, UserIcon } from 'lucide-react';
+'use client';
+
 import { Button } from '@/components/ui/button';
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-  SheetTitle,
-} from '@/components/ui/sheet';
 import Link from 'next/link';
 import ModeToggle from './mode-toggle';
 
 const Menu = () => {
   return (
-    <>
-      <div className='flex justify-end gap-3'>
-        <nav className='md:flex hidden w-full max-w-xs gap-1'>
-          <ModeToggle />
-          <Button asChild variant='ghost'>
-            <Link href='/cart'>
-              <ShoppingCart />
-              Cart
-            </Link>
-          </Button>
-          <Button asChild>
-            <Link href='/sign-in'>
-              <UserIcon />
-              Sign In
-            </Link>
-          </Button>
-        </nav>
-        <nav className='md:hidden'>
-          <Sheet>
-            <SheetTrigger className='align-middle'>
-              <EllipsisVertical />
-            </SheetTrigger>
-            <SheetContent className='flex flex-col items-start'>
-              <SheetTitle>Menu</SheetTitle>
-              <ModeToggle />
-              <Button asChild variant='ghost'>
-                <Link href='/cart'>
-                  <ShoppingCart />
-                  Cart
-                </Link>
-              </Button>
-               <Button asChild>
-                <Link href='/sign-in'>
-                  <UserIcon />
-                  Sign In
-                </Link>
-              </Button>
-            </SheetContent>
-          </Sheet>
-        </nav>
-      </div>
-    </>
+    <div className="flex items-center gap-2 text-foreground">
+      <ModeToggle />
+
+      {/* Log In Button */}
+      <Button asChild variant="ghost" size="sm" className="font-bold">
+        <Link href="/login">Log In</Link>
+      </Button>
+
+      {/* Divider with text-based color */}
+      <span className="h-5 w-px bg-current opacity-50 mx-1" />
+
+      {/* Sign Up Button */}
+      <Button asChild size="sm" className="font-bold">
+        <Link href="/sign-up">Sign Up</Link>
+      </Button>
+    </div>
   );
 };
 
