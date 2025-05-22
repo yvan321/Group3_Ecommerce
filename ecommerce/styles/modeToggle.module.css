@@ -1,0 +1,48 @@
+/* ModeToggle.module.css */
+
+.button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+/* Rotation animation */
+.rotate {
+  animation: rotateIcon 0.5s linear;
+}
+
+@keyframes rotateIcon {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.dropdownContent {
+  background-color: var(--background);
+  padding: 0.5rem 1rem;
+}
+
+.dropdownLabel {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.dropdownSeparator {
+  margin: 0.5rem 0;
+  border-top: 1px solid var(--foreground);
+}

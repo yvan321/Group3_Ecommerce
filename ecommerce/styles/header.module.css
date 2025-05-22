@@ -1,0 +1,123 @@
+/* ========== GENERAL HEADER ========== */
+.headerContainer {
+  position: relative;
+  width: 100%;
+  background-color: var(--background);
+  border-bottom: 1px solid var(--foreground);
+  padding-top: 2.5rem;
+  box-shadow: 8px 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+
+/* ========== AUTH LINKS ========== */
+.authLinks {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 1001;
+}
+
+.authLinks a {
+  text-decoration: none;
+  color: var(--text-color);
+  margin: 0 0.5rem;
+}
+
+.separator {
+  width: 1px;
+  height: 16px;
+  background-color: var(--foreground);
+}
+
+/* ========== LAYOUT WRAPPER ========== */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: relative;
+}
+
+/* ========== LOGO ========== */
+.logo {
+  position: absolute;
+  left: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+/* ========== NAVIGATION LINKS ========== */
+.navLinks {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navLink {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 15px;
+}
+
+/* ========== MOBILE MENU ICON ========== */
+.mobileMenuIcon {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1002;
+  position: absolute;
+  right: 1rem;
+  top: 1.5rem;
+}
+
+/* ========== RESPONSIVE STYLES ========== */
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    right: 0;
+    background-color: var(--background);
+    padding: 1rem 0;
+    text-align: center;
+    z-index: 1000;
+    border-top: 1px solid var(--border-color, #ccc);
+  }
+
+  .navOpen {
+    display: flex;
+  }
+
+  .mobileMenuIcon {
+    display: block;
+  }
+
+  .wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .authLinks {
+    position: absolute;
+    top: 0.5rem;
+    right: 3rem;
+    font-size: 13px;
+    padding: 0;
+  }
+
+  .logo {
+    position: static;
+    margin-left: 1rem;
+  }
+}
