@@ -11,7 +11,7 @@ const Menu = () => {
 
       {/* Log In Button */}
       <Button asChild variant="ghost" size="sm" className="font-bold">
-        <Link href="/login">Log In</Link>
+        <Link href="/sign-in">Log In</Link>
       </Button>
 
       {/* Divider with text-based color */}
