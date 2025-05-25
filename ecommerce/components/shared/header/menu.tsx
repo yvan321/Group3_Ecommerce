@@ -1,8 +1,8 @@
-'use client';
 
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import ModeToggle from './mode-toggle';
+import UserButton from './user-button';
 
 const Menu = () => {
   return (
@@ -10,9 +10,7 @@ const Menu = () => {
       <ModeToggle />
 
       {/* Log In Button */}
-      <Button asChild variant="ghost" size="sm" className="font-bold">
-        <Link href="/sign-in">Log In</Link>
-      </Button>
+      <UserButton/>
 
       {/* Divider with text-based color */}
       <span className="h-5 w-px bg-current opacity-50 mx-1" />
