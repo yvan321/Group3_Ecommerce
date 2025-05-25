@@ -21,6 +21,7 @@ const Menu = () => {
       <Button asChild size="sm" className="font-bold">
         <Link href="/sign-up">Sign Up</Link>
       </Button>
+
     </div>
   );
 };
