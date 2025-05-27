@@ -5,11 +5,12 @@ import { APP_DESCRIPTION, APP_NAME, SERVER_URL } from '@/lib/constants';
 import { ThemeProvider } from 'next-themes';
 
 
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    template: `%s | Prostore`,
+    template: `%s | kix`,
     default: APP_NAME,
   },
   description: APP_DESCRIPTION,
