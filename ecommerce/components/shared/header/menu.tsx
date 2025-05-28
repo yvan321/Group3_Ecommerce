@@ -9,6 +9,12 @@ const Menu = () => {
     <div className="flex items-center gap-2 text-foreground">
       <ModeToggle />
 
+      <Button asChild variant='ghost'>
+              <Link href='/cart'>
+                Cart
+              </Link>
+            </Button>
+
       {/* Log In Button */}
       <UserButton/>
 

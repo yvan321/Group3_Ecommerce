@@ -17,7 +17,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
-    "@hookform/resolvers": "^3.9.1",
+    "@hookform/resolvers": "^3.10.0",
     "@neondatabase/serverless": "^0.10.4",
     "@paypal/react-paypal-js": "^8.7.0",
     "@prisma/adapter-neon": "^6.5.0",
@@ -51,7 +51,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-email": "^3.0.4",
-    "react-hook-form": "^7.53.2",
+    "react-hook-form": "^7.56.4",
     "react-hot-toast": "^2.5.2",
     "react-toastify": "^11.0.5",
     "recharts": "^2.14.1",
@@ -64,7 +64,7 @@
     "uploadthing": "^7.4.0",
     "vaul": "^1.1.1",
     "ws": "^8.18.0",
-    "zod": "^3.23.8"
+    "zod": "^3.25.32"
   },
   "devDependencies": {
     "@prisma/client": "^6.5.0",
