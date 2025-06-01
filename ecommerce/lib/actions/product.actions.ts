@@ -6,7 +6,7 @@ import { prisma } from '@/db/prisma';
 // Get the latest products
 export async function getLatestProducts() {
 
-
+// debug try
   const data = await prisma.product.findMany({
         take: LATEST_PRODUCTS_LIMIT,
     orderBy: { createdAt: 'desc' },
