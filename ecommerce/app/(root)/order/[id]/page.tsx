@@ -43,8 +43,8 @@ const OrderDetailsPage = async (props: {
   }
 
   return (
-    <OrderDetailsTable
-      order={{
+    <OrderDetailsTable 
+   order={{
         ...order,
         shippingAddress: order.shippingAddress as ShippingAddress,
       }}

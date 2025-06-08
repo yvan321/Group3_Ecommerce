@@ -8,15 +8,20 @@ import {
   SheetTitle,
 } from '@/components/ui/sheet';
 import Menu from './menu';
+import CategoriesDrawer from './category-drawer';
+import Search from './search';
 
 const Header = () => {
   return (
     <header className="w-full border-b text-sm">
+      
       {/* Top strip with Login/Signup and ModeToggle */}
       <div className="w-full flex justify-end px-4 py-1 border-b">
         <Menu />
+        
       </div>
-<div className="wrapper flex items-center justify-between py-4 shadow-md">
+<div className="wrapper flex items-center justify-between py-4 shadow-md">  
+  <CategoriesDrawer />
       {/* Logo */}
 <Link href="/" className="flex items-center">
   {/* Light mode logo (shown when NOT in dark mode) */}
@@ -39,6 +44,9 @@ const Header = () => {
     className="hidden dark:block"
   />
 </Link>
+<div className='hidden md:block'>
+  <Search />
+</div>
 
        {/* Desktop Navigation */}
 <div className="hidden md:flex flex-1 justify-center">
@@ -60,6 +68,7 @@ const Header = () => {
                 <MenuIcon className="h-6 w-6" />
               </button>
             </SheetTrigger>
+            
             <SheetContent side="right">
               <SheetTitle className="mb-4">Menu</SheetTitle>
               <nav className="flex flex-col gap-4 text-base font-medium">
