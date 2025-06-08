@@ -43,10 +43,11 @@ const OrderDetailsPage = async (props: {
   }
 
   return (
-    <OrderDetailsTable 
-   order={{
+    <OrderDetailsTable
+      order={{
         ...order,
         shippingAddress: order.shippingAddress as ShippingAddress,
+        orderitems: order.orderItems, // Add this line to match the required property
       }}
       stripeClientSecret={client_secret}
       paypalClientId={process.env.PAYPAL_CLIENT_ID || 'sb'}
