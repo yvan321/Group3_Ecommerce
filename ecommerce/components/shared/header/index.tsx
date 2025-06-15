@@ -20,7 +20,7 @@ const Header = () => {
         <Menu />
         
       </div>
-<div className="wrapper flex items-center justify-between py-4 shadow-md">  
+<div className="w-full flex items-center justify-between py-4 shadow-md">  
   <CategoriesDrawer />
       {/* Logo */}
 <Link href="/" className="flex items-center">

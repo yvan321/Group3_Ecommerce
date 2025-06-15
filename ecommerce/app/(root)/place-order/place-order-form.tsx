@@ -1,16 +1,19 @@
 'use client';
-import { Check, Loader } from 'lucide-react';
-import { useFormStatus } from 'react-dom';
-import { Button } from '@/components/ui/button';
-import { createOrder } from '@/lib/actions/order.actions';
+
 import { useRouter } from 'next/navigation';
+import { Check, Loader } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useFormStatus } from 'react-dom';
+import { createOrder } from '@/lib/actions/order.actions';
 
 const PlaceOrderForm = () => {
   const router = useRouter();
 
   const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault(); 
+    event.preventDefault();
+
     const res = await createOrder();
+
     if (res.redirectTo) {
       router.push(res.redirectTo);
     }
