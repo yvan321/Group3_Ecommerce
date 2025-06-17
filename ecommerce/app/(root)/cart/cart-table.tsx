@@ -18,6 +18,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { formatCurrency } from '@/lib/utils';
+import { FaShoppingCart } from 'react-icons/fa';
 
 // NOTE: The code here has changed from the original course code so that the
 // Buttons no longer share the same state and show the loader independently from
@@ -90,9 +91,14 @@ const CartTable = ({ cart }: { cart?: Cart }) => {
     <>
       <h1 className='py-4 h2-bold'>Shopping Cart</h1>
       {!cart || cart.items.length === 0 ? (
-        <div>
-          Cart is empty. <Link href='/'>Go Shopping</Link>
-        </div>
+            <div className='py-8 flex flex-col items-center justify-center gap-2 text-center'>
+    <FaShoppingCart className='text-5xl text-gray-500 dark:text-gray-300' />
+    <p className='text-lg text-gray-700 dark:text-gray-200'>Cart is empty.</p>
+    <Link href='/' className='text-yellow-600 hover:underline dark:text-yellow-400'>
+      Go Shopping
+    </Link>
+  </div>
+
       ) : (
         <div className='grid md:grid-cols-4 md:gap-5'>
           <div className='overflow-x-auto md:col-span-3'>

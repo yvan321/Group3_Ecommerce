@@ -51,7 +51,7 @@ const AdminProductsPage = async (props: {
             </div>
           )}
         </div>
-        <Button asChild variant='default'>
+        <Button asChild variant='default' className="bg-black text-white dark:bg-white dark:text-black hover:opacity-90 transition">
           <Link href='/admin/products/create'>Create Product</Link>
         </Button>
       </div>
@@ -80,7 +80,7 @@ const AdminProductsPage = async (props: {
               <TableCell>{product.stock}</TableCell>
               <TableCell>{product.rating}</TableCell>
               <TableCell className='flex gap-1'>
-                <Button asChild variant='outline' size='sm'>
+                <Button asChild variant='outline' className="bg-black text-white dark:bg-white dark:text-black hover:opacity-90 transition" size='sm'>
                   <Link href={`/admin/products/${product.id}`}>Edit</Link>
                 </Button>
                 <DeleteDialog id={product.id} action={deleteProduct} />

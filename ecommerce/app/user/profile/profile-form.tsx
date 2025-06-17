@@ -102,7 +102,7 @@ const ProfileForm = () => {
           disabled={form.formState.isSubmitting}
         >
           {form.formState.isSubmitting ? 'Submitting...' : 'Update Profile'}
-        </Button>
+        </Button> 
       </form>
     </Form>
   );

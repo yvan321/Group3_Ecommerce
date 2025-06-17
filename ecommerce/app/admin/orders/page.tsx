@@ -79,7 +79,7 @@ const AdminOrdersPage = async (props: {
                     : 'Not Delivered'}
                 </TableCell>
                 <TableCell>
-                  <Button asChild variant='outline' size='sm'>
+                  <Button asChild variant='outline' className="bg-black text-white dark:bg-white dark:text-black hover:opacity-90 transition" size='sm'>
                     <Link href={`/order/${order.id}`}>Details</Link>
                   </Button>
                   <DeleteDialog id={order.id} action={deleteOrder} />

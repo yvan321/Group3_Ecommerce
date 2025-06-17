@@ -268,8 +268,9 @@ const ProductForm = ({
                           height={100}
                         />
                       ))}
-                      <FormControl>
+                      <FormControl >
                         <UploadButton
+                        
                           endpoint='imageUploader'
                           onClientUploadComplete={(res: { url: string }[]) => {
                             form.setValue('images', [...images, res[0].url]);
@@ -364,12 +365,12 @@ const ProductForm = ({
             )}
           />
         </div>
-        <div>
+       <div className="flex justify-center">
           <Button
             type='submit'
             size='lg'
             disabled={form.formState.isSubmitting}
-            className='button col-span-2 w-full'
+            className="bg-black text-white dark:bg-white dark:text-black hover:opacity-90 transition"
           >
             {form.formState.isSubmitting ? 'Submitting' : `${type} Product`}
           </Button>

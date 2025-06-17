@@ -12,18 +12,29 @@ export default function AdminLayout({
 }>) {
   return (
     <>
+  <div className="p-4"> {/* Add your desired padding here */}
       <div className='flex flex-col'>
         <div className='border-b container mx-auto'>
           <div className='flex items-center h-16 px-4'>
-            <Link href='/' className='w-22'>
+            <Link href="/" className="flex items-center">
               <Image
-                src='/images/logo.svg'
-                height={48}
-                width={48}
+                priority
+                src="/images/logolight.png"
+                width={50}
+                height={50}
                 alt={APP_NAME}
+                className="block dark:hidden"
+              />
+              <Image
+                priority
+                src="/images/logodark.png"
+                width={50}
+                height={50}
+                alt={APP_NAME}
+                className="hidden dark:block"
               />
             </Link>
-            <MainNav className='mx-6' />
+                <MainNav className='mx-10' />
             <div className='ml-auto items-center flex space-x-4'>
               <AdminSearch />
               <Menu />
@@ -33,6 +44,7 @@ export default function AdminLayout({
 
         <div className='flex-1 space-y-4 p-8 pt-6 container mx-auto'>
           {children}
+        </div>
         </div>
       </div>
     </>

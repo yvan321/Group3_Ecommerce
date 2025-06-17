@@ -47,7 +47,8 @@ const  UserButton = async () => {
       </div>
     </DropdownMenuTrigger>
     <DropdownMenuContent
-  className="w-56 bg-white dark:bg-gray-900 text-black dark:text-white border border-gray-200 dark:border-gray-700 shadow-md"
+  className="w-56 bg-white dark:bg-black text-black dark:text-white border border-gray-200 dark:border-gray-800 shadow-md"
+
   align="end"
   forceMount
 >

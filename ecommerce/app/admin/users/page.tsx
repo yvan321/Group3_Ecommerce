@@ -72,7 +72,7 @@ const AdminUserPage = async (props: {
                   )}
                 </TableCell>
                 <TableCell>
-                  <Button asChild variant='outline' size='sm'>
+                  <Button asChild variant='outline' className="bg-black text-white dark:bg-white dark:text-black hover:opacity-90 transition" size='sm'>
                     <Link href={`/admin/users/${user.id}`}>Edit</Link>
                   </Button>
                   <DeleteDialog id={user.id} action={deleteUser} />

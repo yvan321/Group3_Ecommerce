@@ -100,7 +100,9 @@ const ReviewForm = ({
       <Button onClick={handleOpenForm} variant='default'>
         Write a Review
       </Button>
-      <DialogContent className='sm:max-w-[425px]'>
+   <DialogContent className='sm:max-w-[425px] bg-white dark:bg-black text-black dark:text-white border border-gray-200 dark:border-gray-800 shadow-md'>
+
+
         <Form {...form}>
           <form method='post' onSubmit={form.handleSubmit(onSubmit)}>
             <DialogHeader>
@@ -152,7 +154,7 @@ const ReviewForm = ({
                             <SelectValue />
                           </SelectTrigger>
                         </FormControl>
-                        <SelectContent>
+                        <SelectContent className="bg-white dark:bg-black text-black dark:text-white border border-gray-200 dark:border-gray-800 shadow-md">
                           {Array.from({ length: 5 }).map((_, index) => (
                             <SelectItem
                               key={index}
@@ -174,7 +176,7 @@ const ReviewForm = ({
               <Button
                 type='submit'
                 size='lg'
-                className='w-full'
+                className="w-full bg-black text-white dark:bg-white dark:text-black hover:opacity-90 transition"
                 disabled={form.formState.isSubmitting}
               >
                 {form.formState.isSubmitting ? 'Submitting...' : 'Submit'}
