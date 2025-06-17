@@ -99,6 +99,7 @@ const OrderDetailsTable = ({
     return (
       <Button
         type='button'
+        className="w-full bg-black text-white dark:bg-white dark:text-black hover:opacity-90 transition"
         disabled={isPending}
         onClick={() =>
           startTransition(async () => {
@@ -123,6 +124,7 @@ const OrderDetailsTable = ({
     return (
       <Button
         type='button'
+        className="w-full bg-black text-white dark:bg-white dark:text-black hover:opacity-90 transition"
         disabled={isPending}
         onClick={() =>
           startTransition(async () => {

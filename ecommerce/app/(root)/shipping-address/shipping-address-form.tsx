@@ -171,7 +171,7 @@ return (
             />
           </div>
           <div className='flex gap-2'>
-            <Button type='submit' disabled={isPending}>
+            <Button type='submit' className="w-full bg-black text-white dark:bg-white dark:text-black hover:opacity-90 transition" disabled={isPending}>
               {isPending ? (
                 <Loader className='animate-spin w-4 h-4' />
               ) : (

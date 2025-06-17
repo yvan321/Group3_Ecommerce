@@ -88,9 +88,10 @@ const AddToCart  = ({ cart, item }: { cart?: Cart, item: CartItem }) => {
         </>
     ) : 
     ( 
-        <Button className="w-full" type="button" onClick={handleAddToCart}>
-            <Plus/>Add To Cart
-        </Button>
+        <Button className="w-full bg-black text-white dark:bg-white dark:text-black" type="button" onClick={handleAddToCart}>
+  <Plus className="mr-2 h-4 w-4" />
+  Add To Cart
+</Button>
      );
 }
  

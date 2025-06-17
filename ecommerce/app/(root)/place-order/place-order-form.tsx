@@ -22,7 +22,7 @@ const PlaceOrderForm = () => {
   const PlaceOrderButton = () => {
     const { pending } = useFormStatus();
     return (
-      <Button disabled={pending} className='w-full'>
+      <Button disabled={pending} className="w-full bg-black text-white dark:bg-white dark:text-black hover:opacity-90 transition">
         {pending ? (
           <Loader className='w-4 h-4 animate-spin' />
         ) : (

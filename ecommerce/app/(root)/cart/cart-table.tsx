@@ -142,19 +142,20 @@ const CartTable = ({ cart }: { cart?: Cart }) => {
                 </span>
               </div>
               <Button
-                className='w-full'
-                disabled={isPending}
-                onClick={() =>
-                  startTransition(() => router.push('/shipping-address'))
-                }
-              >
-                {isPending ? (
-                  <Loader className='w-4 h-4 animate-spin' />
-                ) : (
-                  <ArrowRight className='w-4 h-4' />
-                )}{' '}
-                Proceed to Checkout
-              </Button>
+  className="w-full bg-black text-white dark:bg-white dark:text-black hover:opacity-90 transition"
+  disabled={isPending}
+  onClick={() =>
+    startTransition(() => router.push('/shipping-address'))
+  }
+>
+  {isPending ? (
+    <Loader className="w-4 h-4 animate-spin" />
+  ) : (
+    <ArrowRight className="w-4 h-4 mr-2" />
+  )}
+  Checkout
+</Button>
+
             </CardContent>
           </Card>
         </div>

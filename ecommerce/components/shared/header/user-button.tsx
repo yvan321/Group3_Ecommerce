@@ -13,11 +13,20 @@ import { signOutUser } from '@/lib/actions/user.actions';
 const  UserButton = async () => {
     const session = await auth();
 
-    if (!session) {
-        return (
-            <Button asChild variant="ghost" size="sm" className="font-bold">
-        <Link href="/sign-in">Log In</Link>
-      </Button>
+      if (!session) {
+    return (
+      <div className="flex items-center gap-2">
+        <Button asChild variant="ghost" size="sm" className="font-bold">
+          <Link href="/sign-in">Log In</Link>
+        </Button>
+
+        {/* Divider */}
+        <span className="h-5 w-px bg-current opacity-50" />
+
+        <Button asChild size="sm" className="font-bold">
+          <Link href="/sign-up">Sign Up</Link>
+        </Button>
+      </div>
         )
     }
 
