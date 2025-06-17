@@ -98,7 +98,7 @@ const ProfileForm = () => {
         <Button
           type='submit'
           size='lg'
-          className='button col-span-2 w-full'
+          className="w-full bg-black text-white dark:bg-white dark:text-black hover:opacity-90 transition"
           disabled={form.formState.isSubmitting}
         >
           {form.formState.isSubmitting ? 'Submitting...' : 'Update Profile'}
