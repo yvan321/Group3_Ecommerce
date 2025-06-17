@@ -17,7 +17,7 @@ const SuccessPage = async (props: {
   const order = await getOrderById(id);
   if (!order) notFound();
 
-  // Retrieve payment intents
+  // Retrieve payment intentssss
   const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
 
   // Check if payment intent is valid
