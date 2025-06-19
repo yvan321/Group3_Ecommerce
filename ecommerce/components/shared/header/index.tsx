@@ -1,19 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Menu as MenuIcon } from 'lucide-react';
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-  SheetTitle,
-} from '@/components/ui/sheet';
 import Menu from './menu';
 import CategoriesDrawer from './category-drawer';
 import Search from './search';
 
+
 const Header = () => {
   return (
-    <header className="w-full border-b text-sm">
+  <header className="w-full border-b text-sm">
       {/* Top strip with Login/Signup and ModeToggle */}
       <div className="w-full flex justify-end px-6 md:px-10 py-1 border-b">
         <Menu />
@@ -21,74 +15,73 @@ const Header = () => {
 
       {/* Main Header Content */}
       <div className="w-full flex items-center justify-between py-4 shadow-md px-6 md:px-10">
-        {/* Categories Drawer - Mobile only */}
-        <div className="block md:hidden">
-          <CategoriesDrawer />
+        {/* Mobile Layout */}
+        <div className="flex w-full items-center justify-between md:hidden">
+          {/* Logo on the left */}
+          <Link href="/" className="flex items-center">
+            <Image
+              priority
+              src="/images/logolight.png"
+              width={40}
+              height={40}
+              alt="Logo for light mode"
+              className="block dark:hidden"
+            />
+            <Image
+              priority
+              src="/images/logodark.png"
+              width={40}
+              height={40}
+              alt="Logo for dark mode"
+              className="hidden dark:block"
+            />
+          </Link>
+
+          {/* Search and Menu on the right */}
+          <div className="flex items-center gap-2">
+            <Search />
+            <CategoriesDrawer />
+          </div>
         </div>
 
-        {/* Logo */}
-        <Link href="/" className="flex items-center">
-          <Image
-            priority
-            src="/images/logolight.png"
-            width={50}
-            height={50}
-            alt="Logo for light mode"
-            className="block dark:hidden"
-          />
-          <Image
-            priority
-            src="/images/logodark.png"
-            width={50}
-            height={50}
-            alt="Logo for dark mode"
-            className="hidden dark:block"
-          />
-        </Link>
+        {/* Desktop Layout */}
+        <div className="hidden md:flex w-full items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="flex items-center">
+            <Image
+              priority
+              src="/images/logolight.png"
+              width={50}
+              height={50}
+              alt="Logo for light mode"
+              className="block dark:hidden"
+            />
+            <Image
+              priority
+              src="/images/logodark.png"
+              width={50}
+              height={50}
+              alt="Logo for dark mode"
+              className="hidden dark:block"
+            />
+          </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex flex-1 justify-center">
+          {/* Desktop Navigation */}
           <nav className="flex gap-6 font-medium text-sm">
             <Link href="/" className="hover:text-gray-600">New & Featured</Link>
-            <Link href="/men" className="hover:text-gray-600">Men</Link>
-            <Link href="/women" className="hover:text-gray-600">Women</Link>
-            <Link href="/kids" className="hover:text-gray-600">Kids</Link>
-            <Link href="/sale" className="hover:text-gray-600">Sale</Link>
-            <Link href="/limited" className="hover:text-gray-600">Limited</Link>
+            <Link href="/search?category=&q=men" className="hover:text-gray-600">Men</Link>
+            <Link href="/search?category=&q=women" className="hover:text-gray-600">Women</Link>
+            <Link href="/search?category=&q=kids" className="hover:text-gray-600">Kids</Link>
+            <Link href="/search?category=&q=sale" className="hover:text-gray-600">Sale</Link>
+            <Link href="/search?category=&q=limited" className="hover:text-gray-600">Limited</Link>
           </nav>
-        </div>
 
-        {/* Search - Desktop only */}
-        <div className="hidden md:block">
+          {/* Search */}
           <Search />
-        </div>
-
-        {/* Mobile Nav Sheet */}
-        <div className="md:hidden">
-          <Sheet>
-            <SheetTrigger asChild>
-              <button className="p-2">
-                <MenuIcon className="h-6 w-6" />
-              </button>
-            </SheetTrigger>
-            <SheetContent side="right">
-              <SheetTitle className="mb-4">Menu</SheetTitle>
-              <nav className="flex flex-col gap-4 text-base font-medium">
-                <Link href="/">New & Featured</Link>
-                <Link href="/men">Men</Link>
-                <Link href="/women">Women</Link>
-                <Link href="/kids">Kids</Link>
-                <Link href="/sale">Sale</Link>
-                <Link href="/limited">Limited</Link>
-              </nav>
-            </SheetContent>
-          </Sheet>
         </div>
       </div>
     </header>
   );
 };
-
-  
 
 export default Header;

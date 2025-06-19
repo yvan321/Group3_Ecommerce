@@ -12,11 +12,19 @@ export default function AdminLayout({
 }>) {
   return (
     <>
-  <div className="p-4"> {/* Add your desired padding here */}
-      <div className='flex flex-col'>
-        <div className='border-b container mx-auto'>
-          <div className='flex items-center h-16 px-4'>
-            <Link href="/" className="flex items-center">
+   <div className="p-4">
+     
+      {/* Top strip with Login/Signup and ModeToggle */}
+      <div className="w-full flex justify-end px-6 md:px-10 py-1 border-b">
+        <Menu />
+      </div>
+      <div className="flex flex-col">
+        {/* Header */}
+        <div className="border-b container mx-auto">
+          <div className="flex flex-wrap items-center justify-between px-4 py-3 gap-4 sm:gap-0 h-auto sm:h-16">
+
+            {/* Left: Logo */}
+            <Link href="/" className="flex items-center shrink-0">
               <Image
                 priority
                 src="/images/logolight.png"
@@ -34,19 +42,26 @@ export default function AdminLayout({
                 className="hidden dark:block"
               />
             </Link>
-                <MainNav className='mx-10' />
-            <div className='ml-auto items-center flex space-x-4'>
+
+            {/* Center: Navigation */}
+            <div className="flex-1 min-w-0 mx-0 sm:mx-10">
+              <MainNav className="w-full overflow-x-auto whitespace-nowrap text-center sm:text-left" />
+            </div>
+
+            {/* Right: Search + Menu */}
+            <div className="flex items-center space-x-4 shrink-0">
               <AdminSearch />
-              <Menu />
+            
             </div>
           </div>
         </div>
 
-        <div className='flex-1 space-y-4 p-8 pt-6 container mx-auto'>
+        {/* Main Page Content */}
+        <div className="flex-1 space-y-4 p-6 sm:p-8 pt-6 container mx-auto">
           {children}
         </div>
-        </div>
       </div>
+    </div>
     </>
   );
 }

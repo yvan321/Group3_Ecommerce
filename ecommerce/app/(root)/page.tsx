@@ -11,18 +11,23 @@ const Homepage = async () => {
 
   return (
     <>
+      {/* Featured Product Carousel */}
       {featuredProducts.length > 0 && (
-        <div className="px-6 md:px-10 lg:px-20 my-8">
+        <div className="px-4 sm:px-6 md:px-10 lg:px-20 my-6 sm:my-8">
           <ProductCarousel data={featuredProducts} />
         </div>
       )}
 
-      <div className="text-center my-10 px-4">
-        <h2 className="text-3xl font-bold">New Arrivals</h2>
-        <p>Check out the latest releases.</p>
+      {/* New Arrivals Heading */}
+      <div className="text-center my-8 sm:my-10 px-4">
+        <h2 className="text-2xl sm:text-3xl font-bold">New Arrivals</h2>
+        <p className="text-sm sm:text-base text-gray-600">
+          Check out the latest releases.
+        </p>
       </div>
 
-      <div className="px-6 md:px-10 lg:px-20">
+      {/* Product List */}
+      <div className="px-4 sm:px-6 md:px-10 lg:px-20">
         <ProductList data={latestProducts} limit={4} />
       </div>
     </>

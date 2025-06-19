@@ -6,6 +6,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { getOrderSummary } from '@/lib/actions/order.actions';
 import { formatCurrency, formatDateTime, formatNumber } from '@/lib/utils';
@@ -25,81 +26,77 @@ const AdminOverviewPage = async () => {
   const summary = await getOrderSummary();
 
   return (
-    <div className='space-y-2'>
-      <h1 className='h2-bold'>Dashboard</h1>
-      <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-4'>
+    <div className="space-y-6 p-4 sm:p-6 lg:p-8">
+      <h1 className="h2-bold">Dashboard</h1>
+
+      {/* Stats Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card>
-          <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
-            <CardTitle className='text-sm font-medium'>Total Revenue</CardTitle>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
             <BadgeDollarSign />
           </CardHeader>
           <CardContent>
-            <div className='text-2xl font-bold'>
-              {formatCurrency(
-                summary.totalSales._sum.totalPrice?.toString() || 0
-              )}
+            <div className="text-2xl font-bold">
+              {formatCurrency(summary.totalSales._sum.totalPrice?.toString() || 0)}
             </div>
           </CardContent>
         </Card>
+
         <Card>
-          <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
-            <CardTitle className='text-sm font-medium'>Sales</CardTitle>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Sales</CardTitle>
             <CreditCard />
           </CardHeader>
           <CardContent>
-            <div className='text-2xl font-bold'>
-              {formatNumber(summary.ordersCount)}
-            </div>
+            <div className="text-2xl font-bold">{formatNumber(summary.ordersCount)}</div>
           </CardContent>
         </Card>
+
         <Card>
-          <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
-            <CardTitle className='text-sm font-medium'>Customers</CardTitle>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Customers</CardTitle>
             <Users />
           </CardHeader>
           <CardContent>
-            <div className='text-2xl font-bold'>
-              {formatNumber(summary.usersCount)}
-            </div>
+            <div className="text-2xl font-bold">{formatNumber(summary.usersCount)}</div>
           </CardContent>
         </Card>
+
         <Card>
-          <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
-            <CardTitle className='text-sm font-medium'>Products</CardTitle>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Products</CardTitle>
             <Barcode />
           </CardHeader>
           <CardContent>
-            <div className='text-2xl font-bold'>
-              {formatNumber(summary.productsCount)}
-            </div>
+            <div className="text-2xl font-bold">{formatNumber(summary.productsCount)}</div>
           </CardContent>
         </Card>
       </div>
-      <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-7'>
-        <Card className='col-span-4'>
+
+      {/* Charts and Recent Sales */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-4">
+        <Card className="col-span-1 md:col-span-2 lg:col-span-4">
           <CardHeader>
             <CardTitle>Overview</CardTitle>
           </CardHeader>
           <CardContent>
-            <Charts
-              data={{
-                salesData: summary.salesData,
-              }}
-            />
+            <Charts data={{ salesData: summary.salesData }} />
           </CardContent>
         </Card>
-        <Card className='col-span-3'>
+
+        <Card className="col-span-1 md:col-span-2 lg:col-span-3">
           <CardHeader>
             <CardTitle>Recent Sales</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>BUYER</TableHead>
-                  <TableHead>DATE</TableHead>
-                  <TableHead>TOTAL</TableHead>
-                  <TableHead>ACTIONS</TableHead>
+                  <TableHead>Buyer</TableHead>
+                  <TableHead>Date</TableHead>
+                  <TableHead>Total</TableHead>
+                  <TableHead>Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -108,13 +105,17 @@ const AdminOverviewPage = async () => {
                     <TableCell>
                       {order?.user?.name ? order.user.name : 'Deleted User'}
                     </TableCell>
-                    <TableCell>
-                      {formatDateTime(order.createdAt).dateOnly}
-                    </TableCell>
+                    <TableCell>{formatDateTime(order.createdAt).dateOnly}</TableCell>
                     <TableCell>{formatCurrency(order.totalPrice)}</TableCell>
                     <TableCell>
                       <Link href={`/order/${order.id}`}>
-                        <span className=' px-2'>Details</span>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="bg-black text-white dark:bg-white dark:text-black hover:opacity-90 transition text-sm"
+                        >
+                          Details
+                        </Button>
                       </Link>
                     </TableCell>
                   </TableRow>

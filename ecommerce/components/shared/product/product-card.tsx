@@ -7,29 +7,34 @@ import Rating from './rating';
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
-    <Card className='w-full max-w-sm'>
-      <CardHeader className='p-0 items-center'>
+    <Card className="w-full max-w-sm">
+      {/* Header: center image on mobile only */}
+      <CardHeader className="p-0">
         <Link href={`/product/${product.slug}`}>
-          <Image
-            src={product.images[0]}
-            alt={product.name}
-            height={300}
-            width={300}
-            priority={true}
-          />
+          <div className="flex justify-center sm:justify-start">
+            <Image
+              src={product.images[0]}
+              alt={product.name}
+              height={300}
+              width={300}
+              priority
+              className="object-cover"
+            />
+          </div>
         </Link>
       </CardHeader>
-      <CardContent className='p-4 grid gap-4'>
-        <div className='text-xs'>{product.brand}</div>
+
+      <CardContent className="p-4 grid gap-4">
+        <div className="text-xs">{product.brand}</div>
         <Link href={`/product/${product.slug}`}>
-          <h2 className='text-sm font-medium'>{product.name}</h2>
+          <h2 className="text-sm font-medium">{product.name}</h2>
         </Link>
-        <div className='flex-between gap-4'>
+        <div className="flex justify-between items-center gap-4">
           <Rating value={Number(product.rating)} />
           {product.stock > 0 ? (
             <ProductPrice value={Number(product.price)} />
           ) : (
-            <p className='text-destructive'>Out Of Stock</p>
+            <p className="text-destructive">Out Of Stock</p>
           )}
         </div>
       </CardContent>

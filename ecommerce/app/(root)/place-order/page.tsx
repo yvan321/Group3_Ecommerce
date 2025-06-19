@@ -41,95 +41,100 @@ const PlaceOrderPage = async () => {
 
   return (
     <>
-      <CheckoutSteps current={3} />
-      <h1 className='py-4 text-2xl'>Place Order</h1>
-      <div className='grid md:grid-cols-3 md:gap-5'>
-        <div className='md:col-span-2 overflow-x-auto space-y-4'>
+     <CheckoutSteps current={3} />
+      <h1 className="py-4 text-2xl">Place Order</h1>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Left Section */}
+        <div className="md:col-span-2 space-y-4">
           <Card>
-            <CardContent className='p-4 gap-4'>
-              <h2 className='text-xl pb-4'>Shipping Address</h2>
+            <CardContent className="p-4">
+              <h2 className="text-xl pb-4">Shipping Address</h2>
               <p>{userAddress.fullName}</p>
               <p>
                 {userAddress.streetAddress}, {userAddress.city}{' '}
-                {userAddress.postalCode}, {userAddress.country}{' '}
+                {userAddress.postalCode}, {userAddress.country}
               </p>
-              <div className='mt-3'>
-                <Link href='/shipping-address'>
-                  <Button variant='outline'>Edit</Button>
+              <div className="mt-3">
+                <Link href="/shipping-address">
+                  <Button variant="outline">Edit</Button>
                 </Link>
               </div>
             </CardContent>
           </Card>
 
           <Card>
-            <CardContent className='p-4 gap-4'>
-              <h2 className='text-xl pb-4'>Payment Method</h2>
+            <CardContent className="p-4">
+              <h2 className="text-xl pb-4">Payment Method</h2>
               <p>{user.paymentMethod}</p>
-              <div className='mt-3'>
-                <Link href='/payment-method'>
-                  <Button variant='outline'>Edit</Button>
+              <div className="mt-3">
+                <Link href="/payment-method">
+                  <Button variant="outline">Edit</Button>
                 </Link>
               </div>
             </CardContent>
           </Card>
 
           <Card>
-            <CardContent className='p-4 gap-4'>
-              <h2 className='text-xl pb-4'>Order Items</h2>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Item</TableHead>
-                    <TableHead>Quantity</TableHead>
-                    <TableHead>Price</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {cart.items.map((item) => (
-                    <TableRow key={item.slug}>
-                      <TableCell>
-                        <Link
-                          href={`/product/{item.slug}`}
-                          className='flex items-center'
-                        >
-                          <Image
-                            src={item.image}
-                            alt={item.name}
-                            width={50}
-                            height={50}
-                          />
-                          <span className='px-2'>{item.name}</span>
-                        </Link>
-                      </TableCell>
-                      <TableCell>
-                        <span className='px-2'>{item.qty}</span>
-                      </TableCell>
-                      <TableCell className='text-right'>
-                        ${item.price}
-                      </TableCell>
+            <CardContent className="p-4">
+              <h2 className="text-xl pb-4">Order Items</h2>
+              <div className="overflow-x-auto">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Item</TableHead>
+                      <TableHead>Quantity</TableHead>
+                      <TableHead className="text-right">Price</TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+                  </TableHeader>
+                  <TableBody>
+                    {cart.items.map((item) => (
+                      <TableRow key={item.slug}>
+                        <TableCell>
+                          <Link
+                            href={`/product/${item.slug}`}
+                            className="flex items-center"
+                          >
+                            <Image
+                              src={item.image}
+                              alt={item.name}
+                              width={50}
+                              height={50}
+                              className="rounded"
+                            />
+                            <span className="px-2 text-sm">{item.name}</span>
+                          </Link>
+                        </TableCell>
+                        <TableCell className="text-sm">{item.qty}</TableCell>
+                        <TableCell className="text-right text-sm">
+                          ${item.price}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
             </CardContent>
           </Card>
         </div>
-        <div>
+
+        {/* Right Section */}
+        <div className="space-y-4">
           <Card>
-            <CardContent className='p-4 gap-4 space-y-4'>
-              <div className='flex justify-between'>
+            <CardContent className="p-4 space-y-4">
+              <div className="flex justify-between text-sm">
                 <div>Items</div>
                 <div>{formatCurrency(cart.itemsPrice)}</div>
               </div>
-              <div className='flex justify-between'>
+              <div className="flex justify-between text-sm">
                 <div>Tax</div>
                 <div>{formatCurrency(cart.taxPrice)}</div>
               </div>
-              <div className='flex justify-between'>
+              <div className="flex justify-between text-sm">
                 <div>Shipping</div>
                 <div>{formatCurrency(cart.shippingPrice)}</div>
               </div>
-              <div className='flex justify-between'>
+              <div className="flex justify-between font-semibold text-base">
                 <div>Total</div>
                 <div>{formatCurrency(cart.totalPrice)}</div>
               </div>

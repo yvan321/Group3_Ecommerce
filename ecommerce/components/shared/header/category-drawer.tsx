@@ -15,29 +15,30 @@ const CategoryDrawer = async () => {
   const categories = await getAllCategories();
 
   return (
-    <Drawer direction='left'>
+    <Drawer direction="left">
       <DrawerTrigger asChild>
-        <Button variant='outline'>
+        <Button variant="outline">
           <MenuIcon />
         </Button>
       </DrawerTrigger>
-      <DrawerContent className='h-full max-w-sm'>
+
+      <DrawerContent className="h-full max-w-sm bg-white text-black dark:bg-black dark:text-white border-r border-black dark:border-white">
         <DrawerHeader>
-          <DrawerTitle>Select a category</DrawerTitle>
-          <div className='space-y-1 mt-4'>
+          <DrawerTitle className="text-lg font-semibold">Select a category</DrawerTitle>
+
+          <div className="space-y-1 mt-4">
             {categories.map((x) => (
-              <Button
-                variant='ghost'
-                className='w-full justify-start'
-                key={x.category}
-                asChild
-              >
-                <DrawerClose asChild>
+              <DrawerClose asChild key={x.category}>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start text-left hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black"
+                  asChild
+                >
                   <Link href={`/search?category=${x.category}`}>
                     {x.category} ({x._count})
                   </Link>
-                </DrawerClose>
-              </Button>
+                </Button>
+              </DrawerClose>
             ))}
           </div>
         </DrawerHeader>

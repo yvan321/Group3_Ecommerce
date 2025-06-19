@@ -50,24 +50,29 @@ const DeleteDialog = ({
           Delete
         </Button>
       </AlertDialogTrigger>
-      <AlertDialogContent>
+      <AlertDialogContent className="bg-white dark:bg-black text-black dark:text-white border border-gray-200 dark:border-gray-800 shadow-md">
         <AlertDialogHeader>
           <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
           <AlertDialogDescription>
             This action cannot be undone
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <Button
-            variant='destructive'
-            size='sm'
-            disabled={isPending}
-            onClick={handleDeleteClick}
-          >
-            {isPending ? 'Deleting...' : 'Delete'}
-          </Button>
-        </AlertDialogFooter>
+       <AlertDialogFooter>
+  <AlertDialogCancel
+    className="bg-muted text-muted-foreground hover:bg-muted/80"
+  >
+    Cancel
+  </AlertDialogCancel>
+  <Button
+    className="bg-red-600 text-white hover:bg-red-700"
+    size="sm"
+    disabled={isPending}
+    onClick={handleDeleteClick}
+  >
+    {isPending ? 'Deleting...' : 'Delete'}
+  </Button>
+</AlertDialogFooter>
+
       </AlertDialogContent>
     </AlertDialog>
   );
