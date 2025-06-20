@@ -4,6 +4,8 @@ import {
   getFeaturedProducts,
 } from '@/lib/actions/product.actions';
 import ProductCarousel from '@/components/shared/product/product-carousel';
+import IconBoxes from '@/components/icon-boxes';
+import ViewAllProductsButton from '@/components/view-all-products-button';
 
 const Homepage = async () => {
   const latestProducts = await getLatestProducts();
@@ -11,11 +13,11 @@ const Homepage = async () => {
 
   return (
     <>
-      {/* Featured Product Carousel */}
+       {/* Featured Product Carousel */}
       {featuredProducts.length > 0 && (
-        <div className="px-4 sm:px-6 md:px-10 lg:px-20 my-6 sm:my-8">
+        <section className="w-full px-4 sm:px-6 md:px-10 lg:px-20 my-6 sm:my-8">
           <ProductCarousel data={featuredProducts} />
-        </div>
+        </section>
       )}
 
       {/* New Arrivals Heading */}
@@ -28,8 +30,10 @@ const Homepage = async () => {
 
       {/* Product List */}
       <div className="px-4 sm:px-6 md:px-10 lg:px-20">
-        <ProductList data={latestProducts} limit={4} />
+        <ProductList data={latestProducts} limit={12} />
       </div>
+      <ViewAllProductsButton />
+      <IconBoxes />
     </>
   );
 };

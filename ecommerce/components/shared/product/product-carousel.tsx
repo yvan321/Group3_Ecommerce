@@ -15,7 +15,7 @@ import Image from 'next/image';
 const ProductCarousel = ({ data }: { data: Product[] }) => {
   return (
     <Carousel
-      className='w-full mb-12'
+      className="w-full mb-12 relative"
       opts={{
         loop: true,
       }}
@@ -31,30 +31,32 @@ const ProductCarousel = ({ data }: { data: Product[] }) => {
         {data.map((product: Product) => (
           <CarouselItem key={product.id}>
             <Link href={`/product/${product.slug}`}>
-              <div className='relative   mx-auto  '>
+              <div className="relative mx-auto">
                 {product.banner && (
-  <Image
-    alt={product.name}
-    src={product.banner}
-    width={0}
-    height={0}
-    sizes="100vw"
-    className="w-full h-auto"
-  />
-)}
+                  <Image
+                    alt={product.name}
+                    src={product.banner}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    className="w-full h-auto"
+                  />
+                )}
+                <div className="absolute inset-0 flex items-end justify-center pb-4">
+  <h2 className="text-base sm:text-lg md:text-xl font-bold px-4 py-2 text-black dark:text-white bg-white/70 dark:bg-zinc-900/70 rounded-full shadow-md backdrop-blur text-center">
+    {product.name}
+  </h2>
+</div>
 
-                <div className='absolute inset-0 flex items-end justify-center'>
-                  <h2 className=' bg-gray-900 bg-opacity-50 text-2xl font-bold px-2 text-white  '>
-                    {product.name}
-                  </h2>
-                </div>
               </div>
             </Link>
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+
+      {/* ✅ Fixed swipe buttons */}
+      <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 dark:bg-zinc-900/70 rounded-full p-2 shadow-md" />
+      <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 dark:bg-zinc-900/70 rounded-full p-2 shadow-md" />
     </Carousel>
   );
 };
