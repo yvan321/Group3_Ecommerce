@@ -143,7 +143,7 @@ const UpdateUserForm = ({
                       <SelectValue placeholder='Select a role' />
                     </SelectTrigger>
                   </FormControl>
-                  <SelectContent className='bg-black text-white dark:bg-white dark:text-black hover:opacity-90 transition'>
+                  <SelectContent className='bg-white text-black dark:bg-black dark:text-white hover:opacity-90 transition'>
                     {USER_ROLES.map((role) => (
                       <SelectItem key={role} value={role}>
                         {role.charAt(0).toUpperCase() + role.slice(1)}
