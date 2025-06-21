@@ -159,7 +159,7 @@ const UpdateUserForm = ({
         <div className='flex-between mt-6'>
           <Button
             type='submit'
-            className='w-full'
+            className='bg-black text-white dark:bg-white dark:text-black hover:opacity-90 transition w-full'
             disabled={form.formState.isSubmitting}
           >
             {form.formState.isSubmitting ? 'Submitting...' : 'Update User'}
